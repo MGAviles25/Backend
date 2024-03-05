@@ -1,4 +1,27 @@
-export default function conectar() {
+import mysql from 'mysql2/promise'
 
-    
+export default function conectar() {
+    if(global.pool !== undefined) {
+       return await global.pool.getConnection();
+    }
+    else {
+
+   
+    const pool = mysql.createPool({
+        host: 'localhost',
+        user: 'root',
+        database: 'test',
+        waitForConnections: true,
+        connectionLimit: 10,
+        maxIdle: 10, 
+        idleTimeout: 60000, 
+        queueLimit: 0,
+        enableKeepAlive: true,
+        keepAliveInitialDelay: 0,
+      });
+
+      global.pool = pool
+      return await pool.getConnection();
+    }
+
 }
