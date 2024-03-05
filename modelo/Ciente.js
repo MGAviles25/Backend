@@ -92,4 +92,14 @@ export default class Cliente{
     set email(novoEmail){
         this.#email = novoEmail;
     }
+
+    gravar(){
+        
+    }
+
+    atualizar(){}
+
+    excluir(){}
+
+    consultar(termoDePesquisa){}
 }
