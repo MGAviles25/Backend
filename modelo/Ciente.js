@@ -2,22 +2,19 @@ export default class Cliente{
     #codigo;
     #cpf;
     #nome;
-    #endereco;
-    #bairro;
-    #cidade;
-    #estado;
+    #dataNasc;
     #telefone;
     #email;
+    #cidade;
 
-    constructor(codigo =0, cpf ="", endereco ="", bairro="", cidade ="", estado ="", telefone ="", email ="") {
+    constructor(codigo =0, cpf ="", dataNasc ="", nome ="", telefone ="", email ="", cidade = "") {
             this.#codigo = codigo;
             this.#cpf = cpf;
-            this.#endereco = endereco;
-            this.#bairro = bairro;
-            this.#cidade = cidade;
-            this.#estado = estado;
+            this.#dataNasc = dataNasc;
             this.#telefone = telefone;
             this.#email = email;
+            this.#nome = nome;
+            this.#cidade = cidade;
 
     }
 
@@ -45,20 +42,12 @@ export default class Cliente{
         this.#nome = novoNome;
     }
 
-    get endereco(){
-        return this.#endereco;
+    get dataNasc(){
+        return this.#dataNasc;
     }
 
-    set endereco(novoEndereco){
-        this.#endereco = novoEndereco;
-    }
-
-    get bairro(){
-        return this.#bairro;
-    }
-
-    set bairro(novoBairro){
-        this.#bairro = novoBairro;
+    set dataNasc(novoDataNasc){
+        this.#dataNasc = novoDataNasc;
     }
 
     get cidade(){
@@ -68,15 +57,6 @@ export default class Cliente{
     set cidade(novoCidade){
         this.#cidade = novoCidade;
     }
-
-    get estado(){
-        return this.#estado;
-    }
-
-    set estado(novoEstado){
-        this.#estado = novoEstado;
-    }
-
     get telefone(){
         return this.#telefone;
     }
