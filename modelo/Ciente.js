@@ -1,4 +1,4 @@
-import ClienteDAO from "../persistencia/ClienteDAO";
+import ClienteDAO from "../persistencia/ClienteDAO.js";
 
 export default class Cliente{
     #codigo;
@@ -9,7 +9,7 @@ export default class Cliente{
     #email;
     #cidade;
 
-    constructor(codigo=0, cpf="", dataNasc="", nome="", telefone="", email="", cidade="") {
+    constructor(codigo=0, cpf="",nome="", dataNasc="",  telefone="", email="", cidade="") {
             this.#codigo = codigo;
             this.#cpf = cpf;
             this.#nome = nome;
@@ -97,5 +97,9 @@ export default class Cliente{
 
     toString(){
         return `Cliente código: ${this.#codigo} - nome: ${this.#nome}`;
+    }
+
+    toJSON(){
+        
     }
 }
