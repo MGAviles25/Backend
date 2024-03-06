@@ -1,18 +1,18 @@
 export default class ClienteDAO{
 
-    gravar(){
+    gravar(cliente){
         
     }
 
-    atualizar(){
+    atualizar(cliente){
         
     }
 
-    excluir(){
+    excluir(cliente){
 
     }
 
-    consultar(){
+    consultar(termoDePesquisa){
 
     }
 
