@@ -66,6 +66,20 @@ export default class ClienteDAO{
         const conexao = await conectar();
         const [registro] = await conexao.execute(sql,[termoDePesquisa]);
 
+        let listaCliente = [];
+        for (const registro of registros){
+            const cliente = new Cliente(  
+                cliente.cpf,
+                cliente.nome,
+                cliente.dataNasc,
+                cliente.telefone,
+                cliente.email,
+                cliente.cidade 
+
+            );
+            listaCliente.push(1)
+
+        }
     }
 
 }
