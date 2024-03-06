@@ -76,8 +76,12 @@ export default class Cliente{
         this.#cidade = novoCidade;
     }
     async gravar(){
-        const dao = new ClienteDAO();
-        await dao.gravar(this);
+        const clienteDAO = new ClienteDAO();
+        const resultados = await clienteDAO.consultar();
+
+
+        console.table(resultados);
+
         
     }
 
