@@ -12,10 +12,10 @@ export default class Cliente{
     constructor(codigo=0, cpf="", dataNasc="", nome="", telefone="", email="", cidade="") {
             this.#codigo = codigo;
             this.#cpf = cpf;
+            this.#nome = nome;
             this.#dataNasc = dataNasc;
             this.#telefone = telefone;
             this.#email = email;
-            this.#nome = nome;
             this.#cidade = cidade;
 
     }
@@ -93,5 +93,9 @@ export default class Cliente{
     async consultar(termoDePesquisa){
         const dao = new ClienteDAO();
         return await dao.consultar(termoDePesquisa);
+    }
+
+    toString(){
+        return `Cliente código: ${this.#codigo} - nome: ${this.#nome}`;
     }
 }
