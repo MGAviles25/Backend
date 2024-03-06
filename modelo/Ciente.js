@@ -9,7 +9,7 @@ export default class Cliente{
     #email;
     #cidade;
 
-    constructor(codigo =0, cpf ="", dataNasc ="", nome ="", telefone ="", email ="", cidade = "") {
+    constructor(codigo=0, cpf="", dataNasc="", nome="", telefone="", email="", cidade="") {
             this.#codigo = codigo;
             this.#cpf = cpf;
             this.#dataNasc = dataNasc;
