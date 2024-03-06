@@ -4,7 +4,7 @@ export default class ClienteDAO{
 
     async gravar(cliente){
         if(cliente instanceof Cliente){  
-            const conexão = await conectar();
+            const conexao = await conectar();
             const sql = 'INSERT INTO cliente (cpf, nome, dataNasc, telefone, email, cidade) values (?, ?, ?, ?, ?, ?)';
             const parametros = [
                 cliente.cpf,
@@ -22,7 +22,7 @@ export default class ClienteDAO{
 
     async atualizar(cliente){
         if(cliente instanceof Cliente){
-            const conexão = await conectar();
+            const conexao = await conectar();
             const sql = `UPDATE cliente SET cpf = ?, nome = ?, dataNasc = ?, telefone = ?, email = ?, cidade= ? WHERE codigo = ?`;
             const parametros = [
                 cliente.cpf,
