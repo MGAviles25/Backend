@@ -101,13 +101,13 @@ export default class Cliente{
 
     toJSON(){
         return{
-            "codigo":this.#codigo = codigo,
-            "cpf": this.#cpf = cpf,
-            "nome":this.#nome = nome,
-            "dataNasc":this.#dataNasc = dataNasc,
-            "telefone":this.#telefone = telefone,
-            "email":this.#email = email,
-            "cidade":this.#cidade = cidade
+            "codigo":this.#codigo,
+            "cpf": this.#cpf,
+            "nome":this.#nome,
+            "dataNasc":this.#dataNasc,
+            "telefone":this.#telefone,
+            "email":this.#email,
+            "cidade":this.#cidade 
         }
     }
  }
