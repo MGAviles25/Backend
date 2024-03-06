@@ -1,6 +1,6 @@
-import ClienteDAO from "../persistencia/ClienteDAO.js";
+import EventoDAO from "../persistencia/EventoDAO.js";
 
-export default class Cliente {
+export default class Evento {
     #codigo;
     #cpf;
     #nome;
@@ -72,8 +72,8 @@ export default class Cliente {
         this.#cidade = novoCidade;
     }
     async gravar(){
-        const clienteDAO = new ClienteDAO();
-        const resultados = await clienteDAO.consultar();
+        const eventoDAO = new EventoDAO();
+        const resultados = await eventoDAO.consultar();
 
 
         console.table(resultados);
@@ -82,16 +82,16 @@ export default class Cliente {
     }
 
     async atualizar(){
-    const dao = new ClienteDAO();
+    const dao = new EventoDAO();
     await dao.atualizar(this);
     }
     async excluir(){
-        const dao = new ClienteDAO();
+        const dao = new EventoDAO();
         await dao.excluir(this);
     }
 
     async consultar(termoDePesquisa){
-        const dao = new ClienteDAO();
+        const dao = new EventoDAO();
         return await dao.consultar(termoDePesquisa);
     }
 

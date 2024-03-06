@@ -1,13 +1,13 @@
-import Cliente from "./modelo/Cliente.js";
+import Evento from "./modelo/Evento.js";
 
 
-const cliente = new Cliente(3, "143.432.875-10", "marcos", "10/12/2010", "(10)32131-3313", "marco@ig.com", "parapuã");
+const evento = new Evento(3, "143.432.875-10", "marcos", "10/12/2010", "(10)32131-3313", "marco@ig.com", "parapuã");
 
-console.log(cliente.toString());
-console.log(cliente.toJSON());
+console.log(evento.toString());
+console.log(evento.toJSON());
 
-cliente.gravar().then(() =>{
-    console.log("Cliente gravado com sucesso!");
+evento.gravar().then(() =>{
+    console.log("participante gravado com sucesso!");
 }).catch((erro) => {
     console.log(erro);
 });
