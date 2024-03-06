@@ -77,9 +77,10 @@ export default class ClienteDAO{
                 cliente.cidade 
 
             );
-            listaCliente.push(1)
+            listaCliente.push(cliente)
 
         }
+        return listaCliente
     }
 
 }
