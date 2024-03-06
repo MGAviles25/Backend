@@ -1,4 +1,4 @@
-import ClienteDAO from "../persistencia/ClienteDAO.js";
+import ClienteDAO from "../Backend/persistencia/ClienteDAO.js";
 
 export default class Cliente{
     #codigo;

@@ -5,7 +5,7 @@ export default async function conectar() {
        return await global.pool.getConnection();
     }
     else {
-        const pool = mysql.createPool({
+      const pool = mysql.createPool({
         host: 'localhost',
         user: 'root',
         password: '',
