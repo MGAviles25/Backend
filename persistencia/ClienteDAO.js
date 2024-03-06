@@ -23,65 +23,66 @@ export default class ClienteDAO{
     }
 
     async atualizar(cliente){
-        if (cliente instanceof Cliente){
+        if(cliente instanceof Cliente){
             const conexao = await conectar();
-            const sql = `UPDATE cliente SET cpf = ?,
-                         nome = ?, dataNasc = ?, telefone = ?,
-                         email = ?, cidade = ? WHERE id = ?`;
+            const sql = `UPDATE cliente SET cpf = ?, nome = ?, dataNasc = ?, telefone = ?, email = ?, cidade= ? WHERE codigo = ?`;
             const parametros = [
                 cliente.cpf,
                 cliente.nome,
                 cliente.dataNasc,
                 cliente.telefone,
                 cliente.email,
-                cliente.cidade
+                cliente.cidade 
+
             ];
 
             await conexao.execute(sql,parametros);
         }
     }
 
-    async excluir(cliente){
-        if (cliente instanceof Cliente){
+    async excluir(cliente){   
+        if(cliente instanceof Cliente){
             const conexao = await conectar();
-            const sql = `DELETE FROM cliente WHERE id = ?`;
+            const sql = `DELETE FROM cliente WHERE codigo = ?`;
             const parametros = [
                 cliente.codigo
             ]
             await conexao.execute(sql,parametros);
         }
+
     }
 
-   
-    
     async consultar(termoDePesquisa){
-        if (termoDePesquisa === undefined){
+        if ( termoDePesquisa === undefined){
             termoDePesquisa = "";
         }
         let sql="";
-        if (isNaN(termoDePesquisa)){ 
-            sql = `SELECT * FROM cliente WHERE nome LIKE ?`;
-            termoDePesquisa= '%' + termoDePesquisa + '%';
+        if (isNaN(termoDePesquisa)){
+            sql = `SELECT * FROM cliente WHERE nome LIKE '%?%'`;
+        
         }
         else{
-            sql = `SELECT * FROM cliente WHERE id = ?`;
+            sql = `SELECT * FROM cliente WHERE codigo = ?`;
         }
 
         const conexao = await conectar();
-        const [registros] = await conexao.execute(sql,[termoDePesquisa]);
-       
-        let listaClientes = [];
+        const [registro] = await conexao.execute(sql,[termoDePesquisa]);
+
+        let listaCliente = [];
         for (const registro of registros){
-            const cliente = new Cliente(
+            const cliente = new Cliente(  
                 cliente.cpf,
                 cliente.nome,
                 cliente.dataNasc,
                 cliente.telefone,
                 cliente.email,
-                cliente.cidade
+                cliente.cidade 
+
             );
-            listaClientes.push(cliente);
+            listaCliente.push(cliente)
+
         }
-        return listaClientes;
+        return listaCliente
     }
+
 }

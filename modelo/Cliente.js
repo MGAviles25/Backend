@@ -52,13 +52,7 @@ export default class Cliente{
         this.#dataNasc = novoDataNasc;
     }
 
-    get cidade(){
-        return this.#cidade;
-    }
-
-    set cidade(novoCidade){
-        this.#cidade = novoCidade;
-    }
+    
     get telefone(){
         return this.#telefone;
     }
@@ -74,7 +68,13 @@ export default class Cliente{
     set email(novoEmail){
         this.#email = novoEmail;
     }
+    get cidade(){
+        return this.#cidade;
+    }
 
+    set cidade(novoCidade){
+        this.#cidade = novoCidade;
+    }
     async gravar(){
         const dao = new ClienteDAO();
         await dao.gravar(this);
