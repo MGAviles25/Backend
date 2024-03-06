@@ -1,13 +1,13 @@
 import Cliente from "./modelo/Cliente.js";
 
 
+const cliente = new Cliente(3, "143.432.875-10", "marcos", "10/12/2010", "(10)32131-3313", "marco@ig.com", "parapuã");
 
+console.log(cliente.toString());
+console.log(cliente.toJSON());
 
-const cliente = new Cliente(1,"122.435.234.32", "marcos", "12/12/2012", "(12)99999-0000", "marco@ip.com", "SP");
-
-
-cliente.gravar().then(() => {
-    console.log("cliente gravado com sucesso!");
-}).catch((erro) => {
-    console.log(erro.message)
+cliente.gravar().then(function(){
+    console.log("cliente gravado com sucesso");
+}).catch(function (erro){
+    console.log(erro.message);
 });
