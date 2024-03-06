@@ -4,7 +4,7 @@ import Cliente from "../modelo/Cliente.js";
 export default class ClienteDAO{
     async gravar(cliente){
         if (cliente instanceof Cliente){
-            const conexao = await conectar();
+            const conexão = await conectar();
             const sql = `INSERT INTO cliente (cpf, nome, dataNasc, telefone, email,
                          cidade) 
                          values (?, ?, ?, ?, ?, ?)`;
@@ -16,7 +16,7 @@ export default class ClienteDAO{
                 cliente.email,
                 cliente.cidade 
             ];
-            const [resultados, campos] = await conexao.execute(sql,parametros);
+            const [resultados, campos] = await conexão.execute(sql,parametros);
             
             cliente.codigo = resultados.insertId; 
         }
@@ -24,7 +24,7 @@ export default class ClienteDAO{
 
     async atualizar(cliente){
         if(cliente instanceof Cliente){
-            const conexao = await conectar();
+            const conexão = await conectar();
             const sql = `UPDATE cliente SET cpf = ?, nome = ?, dataNasc = ?, telefone = ?, email = ?, cidade= ? WHERE codigo = ?`;
             const parametros = [
                 cliente.cpf,
@@ -36,18 +36,18 @@ export default class ClienteDAO{
 
             ];
 
-            await conexao.execute(sql,parametros);
+            await conexão.execute(sql,parametros);
         }
     }
 
     async excluir(cliente){   
         if(cliente instanceof Cliente){
-            const conexao = await conectar();
+            const conexão = await conectar();
             const sql = `DELETE FROM cliente WHERE codigo = ?`;
             const parametros = [
                 cliente.codigo
             ]
-            await conexao.execute(sql,parametros);
+            await conexão.execute(sql,parametros);
         }
 
     }
@@ -59,14 +59,14 @@ export default class ClienteDAO{
         let sql="";
         if (isNaN(termoDePesquisa)){
             sql = `SELECT * FROM cliente WHERE nome LIKE '%?%'`;
-        
+            termoDePesquisa= '%' + termoDePesquisa + '%';
         }
         else{
             sql = `SELECT * FROM cliente WHERE codigo = ?`;
         }
 
-        const conexao = await conectar();
-        const [registro] = await conexao.execute(sql,[termoDePesquisa]);
+        const conexão = await conectar();
+        const [registro] = await conexão.execute(sql,[termoDePesquisa]);
 
         let listaCliente = [];
         for (const registro of registros){
