@@ -20,7 +20,7 @@ export default async function conectar() {
         keepAliveInitialDelay: 0,
       });
 
-      global.pool = pool;
+      global.pool = pool
       return await pool.getConnection();
     }
 

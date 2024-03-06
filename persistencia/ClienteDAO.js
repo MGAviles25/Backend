@@ -5,9 +5,7 @@ export default class ClienteDAO{
     async gravar(cliente){
         if (cliente instanceof Cliente){
             const conexão = await conectar();
-            const sql = `INSERT INTO cliente (cpf, nome, dataNasc, telefone, email,
-                         cidade) 
-                         values (?, ?, ?, ?, ?, ?)`;
+            const sql = `INSERT INTO cliente (cpf, nome, dataNasc, telefone, email, cidade) values (?, ?, ?, ?, ?, ?)`;
             const parametros = [
                 cliente.cpf,
                 cliente.nome,

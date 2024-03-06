@@ -6,8 +6,8 @@ const cliente = new Cliente(3, "143.432.875-10", "marcos", "10/12/2010", "(10)32
 console.log(cliente.toString());
 console.log(cliente.toJSON());
 
-cliente.gravar().then(function(){
-    console.log("cliente gravado com sucesso");
-}).catch(function (erro){
-    console.log(erro.message);
+cliente.gravar().then(() =>{
+    console.log("Cliente gravado com sucesso!");
+}).catch((erro) => {
+    console.log(erro);
 });

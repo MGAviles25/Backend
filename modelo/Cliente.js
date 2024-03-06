@@ -1,6 +1,6 @@
 import ClienteDAO from "../persistencia/ClienteDAO.js";
 
-export default class Cliente{
+export default class Cliente {
     #codigo;
     #cpf;
     #nome;
@@ -18,10 +18,6 @@ export default class Cliente{
             this.#email = email;
             this.#cidade = cidade;
 
-    }
-
-    get codigo(){
-        return this.#codigo;
     }
 
     set codigo(novoCodigo){
