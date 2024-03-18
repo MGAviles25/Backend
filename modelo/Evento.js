@@ -70,15 +70,13 @@ export default class Evento {
 
     set cidade(novoCidade){
         this.#cidade = novoCidade;
+
     }
+
     async gravar(){
-        const eventoDAO = new EventoDAO();
-        const resultados = await eventoDAO.consultar();
+        const dao = new EventoDAO();
+        await dao.gravar(this);
 
-
-        console.table(resultados);
-
-        
     }
 
     async atualizar(){
@@ -96,7 +94,7 @@ export default class Evento {
     }
 
     toString(){
-        return `Cliente código: ${this.#codigo} - nome: ${this.#nome}`;
+        return `Evento código: ${this.#codigo} - nome: ${this.#nome}`;
     }
 
     toJSON(){

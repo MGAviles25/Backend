@@ -1,8 +1,16 @@
-import Evento from "./modelo/Evento.js";
+import express from "express";
+import rotaEvento from "./Rotas/rotaEvento.js";
 
+const host = '0.0.0.0'; 
+const porta = 3000; 
 
-const evento = new Evento(3, "143.432.875-10", "marcos", "10/12/2010", "(10)32131-3313", "marco@ig.com", "parapuã");
+const app = express();
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: true })); 
 
-console.log(evento.toString());
-console.log(evento.toJSON());
+app.use('/evento',rotaEvento);
+
+app.listen(porta, host, () => {
+    console.log(`Servidor rodando em http://${host}:${porta}`);
+});
 

@@ -14,7 +14,7 @@ export default class EventoDAO{
                 evento.email,
                 evento.cidade 
             ];
-            const [resultados, campos] = await conexão.execute(sql,parametros);
+            const [resultados,  ] = await conexão.execute(sql,parametros);
             
             evento.codigo = resultados.insertId; 
         }
@@ -64,17 +64,17 @@ export default class EventoDAO{
         }
 
         const conexão = await conectar();
-        const [registro] = await conexão.execute(sql,[termoDePesquisa]);
+        const [registros] = await conexão.execute(sql,[termoDePesquisa]);
 
         let listaEvento = [];
         for (const registro of registros){
             const evento = new Evento(  
-                evento.cpf,
-                evento.nome,
-                evento.dataNasc,
-                evento.telefone,
-                evento.email,
-                evento.cidade 
+                registro.cpf,
+                registro.nome,
+                registro.dataNasc,
+                registro.telefone,
+                registro.email,
+                registro.cidade 
 
             );
             listaEvento.push(evento)
