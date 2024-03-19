@@ -1,4 +1,4 @@
-import express from "express";
+import express from "./express";
 import rotaEvento from "./Rotas/rotaEvento.js";
 
 const host = '0.0.0.0'; 
