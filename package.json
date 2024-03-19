@@ -23,6 +23,6 @@
   "homepage": "https://github.com/MGAviles25/Backend#readme",
   "dependencies": {
     "mysql2": "^3.9.2",
-    "node": "^21.6.2"
+    "node": "^21.7.1"
   }
 }
